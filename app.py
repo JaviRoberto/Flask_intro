@@ -74,9 +74,28 @@ plt.show()
 
 
 
+def test_info(bedrooms, bathrooms,sqft_living, sqft_lot, floors, condition, grade):
+    new_data = [['bedrooms', bedrooms], ['bathrooms', bathrooms],['sqft_living', sqft_living],['sqft_lot', sqft_lot], ['floors', floors], ['condition', condition], ['grade',grade]]
 
+    # Convert the list of lists to a pandas DataFrame
+    df = pd.DataFrame(new_data, columns=['feature', 'value'])
 
+    # Map feature names to corresponding values
+    features = df['feature'].values
+    values = df['value'].values
 
+    # Create a dictionary with feature names as keys and values as values
+    input_dict = dict(zip(features, values))
+
+    # Convert the dictionary to a DataFrame with a single row
+    input_df = pd.DataFrame([input_dict])
+
+    # Predict using the model
+    new_pred = lin_reg.predict(input_df)
+
+    # Print the prediction
+    print("Predicted Price for New Data:", new_pred[0])
+test_info(1,1,1,1,1,1,1)
 #  #   Column        Non-Null Count  Dtype
 # ---  ------        --------------  -----
 #  0   PRICE         4801 non-null   int64
