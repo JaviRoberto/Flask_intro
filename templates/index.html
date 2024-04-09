@@ -9,13 +9,16 @@
 
 <h1> Welcome to Javier's discount AI program</h1>
 
-    <div>The dataset we will be using contains house sale prices for King County.
+    <div><h3> The dataset we will be using contains house sale prices for King County.
         It includes homes sold between May 2014 and May 2015.
-        The data set can be found here: <a href="https://www.kaggle.com/datasets/harlfoxem/housesalesprediction"> HERE</a>
+        The data set can be found here: <a href="https://www.kaggle.com/datasets/harlfoxem/housesalesprediction"> HERE</a> </h3>
         <h3> The data contains over 21,613 sold homes with over 19 data point on each! This includes price, size, bathrooms and so much more. </h3>
     </div>
 
-<div>  <h3> This is a visulization of the data </h3>
+<div>  <h3> This is a a little snipit of the exel sheet we are given. Remember it is over 20,000 lines long! </h3>
+    <img src="/Flask_intro_new/screenshot_ex.png" alt="Girl in a jacket" style="width:1000px;height:700px;"> </div>
+
+<div>  <h3> This is a visulization of the data. This compared every data point to every other data point. It is used to quickly find patterns.  </h3>
     <img src="/Flask_intro_new/mainplot.png" alt="Girl in a jacket" style="width:700px;height:700px;"> </div>
 
 <div>  <h3> At first glance it can be overwhelming. Our goal is to find patterns we can use to help train out AI. Let us pick a one section of the graph to compare what can effect price. </h3>
@@ -29,6 +32,21 @@
 <h3> Now bathrooms! Seems like a small pattern with bathroom and price.  </h3>
 <img src="/Flask_intro_new/price_bath.png" alt="Girl in a jacket" style="width:600px;height:600px;"> </div>
 
+<h3> Now let's cut some data. If you have seen we are given data point like, date, price, floors, waterfront, view, year built and a few more.   </h3>
+<h3> We are only going to keep price, bedrooms, bathrooms, sqft_living, sqft_lot, floors, condition, and grade    </h3>
+
+<div>  <h3> OK this is better. We know have better data to work with. </h3>
+    <img src="/Flask_intro_new/screenshot_2.png" alt="Girl in a jacket" style="width:700px;height:700px;"> </div>
+
+
+<div>  <h3> Now, in the code we train and test the data. We reserve 40% of the data (homes) so we can test it once the model is trained.</h3>
+
+
+    <div>  <h3> Now, let's feed out AI the test data and see how we did!  </h3>
+        <img src="/Flask_intro_new/prediction_graph.png" alt="Girl in a jacket" style="width:700px;height:500px;"> </div>
+
+
+    <div>  <h3> Good news, we did ok. This is to be expected. We have a strong pattern. The closer the dots are together the better. There are some outliers and some of our predictions are not exact. When it comes to real estate there are many factors that determine price. </h3>
 
 
 
