@@ -6,6 +6,32 @@
     <link rel="stylesheet" href={{ url_for('static', filename='css/main.css') }}
 </head>
 <body>
-fuck index
+
+<h1> Welcome to Javier's discount AI program</h1>
+
+    <div>The dataset we will be using contains house sale prices for King County.
+        It includes homes sold between May 2014 and May 2015.
+        The data set can be found here: <a href="https://www.kaggle.com/datasets/harlfoxem/housesalesprediction"> HERE</a>
+        <h3> The data contains over 21,613 sold homes with over 19 data point on each! This includes price, size, bathrooms and so much more. </h3>
+    </div>
+
+<div>  <h3> This is a visulization of the data </h3>
+    <img src="/Flask_intro_new/mainplot.png" alt="Girl in a jacket" style="width:700px;height:700px;"> </div>
+
+<div>  <h3> At first glance it can be overwhelming. Our goal is to find patterns we can use to help train out AI. Let us pick a one section of the graph to compare what can effect price. </h3>
+    <h3> Now things are making a little more sense. As the size of the home increases... so does the price! It is not exact a price indicator but there is a strong correlation.  </h3>
+    <img src="/Flask_intro_new/price_sq_livinq.png" alt="Girl in a jacket" style="width:600px;height:600px;"> </div>
+
+<h3> Now lets pick a another data point to compare! Grade and Price!</h3>
+<h3> We can see a pattern here too! It seems to be that the higher the grade the higher the higher it can be sold for. Grade 1 would mean you have to tear down the house while a higher grade means the quality of the home is better. However, there is a big range on the price within the grades. </h3>
+<img src="/Flask_intro_new/price_grade.png" alt="Girl in a jacket" style="width:600px;height:600px;"> </div>
+
+<h3> Now bathrooms! Seems like a small pattern with bathroom and price.  </h3>
+<img src="/Flask_intro_new/price_bath.png" alt="Girl in a jacket" style="width:600px;height:600px;"> </div>
+
+
+
+
+
 </body>
 </html>
