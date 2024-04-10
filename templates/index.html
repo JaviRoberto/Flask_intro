@@ -15,34 +15,34 @@
 
 
  <h3> This is a little snipit of the exel sheet we are given. Remember it is over 20,000 lines long! </h3>
-    <img src="static/photos/screenshot_ex.png" alt="Girl in a jacket" style="width:1000px;height:700px;">
+    <img src="static/photos/screenshot_ex.png" alt="Graph of exel sheet" style="width:1000px;height:700px;">
 
  <h3> This is a visulization of the data. This compared every data point to every other data point. It is used to quickly find patterns.  </h3>
-    <img src="static/photos/mainplot.png" alt="Girl in a jacket" style="width:700px;height:700px;">
+    <img src="static/photos/mainplot.png" alt="Graph of graphs" style="width:700px;height:700px;">
 
   <h3> At first glance it can be overwhelming. Our goal is to find patterns we can use to help train out AI. Let us pick a one section of the graph to compare what can effect price. </h3>
     <h3> Now things are making a little more sense. As the size of the home increases... so does the price! It is not exact a price indicator but there is a strong correlation.  </h3>
-    <img src="static/photos/price_sq_livinq.png" alt="Girl in a jacket" style="width:600px;height:600px;">
+    <img src="static/photos/price_sq_livinq.png" alt="Graph of price over sqliving" style="width:600px;height:600px;">
 
 <h3> Now lets pick a another data point to compare! Grade and Price!</h3>
 <h3> We can see a pattern here too! It seems to be that the higher the grade the higher the higher it can be sold for. Grade 1 would mean you have to tear down the house while a higher grade means the quality of the home is better. However, there is a big range on the price within the grades. </h3>
-<img src="static/photos/price_grade.png" alt="Girl in a jacket" style="width:600px;height:600px;">
+<img src="static/photos/price_grade.png" alt="Graph of price over grade" style="width:600px;height:600px;">
 
 <h3> Now bathrooms! Seems like a small pattern with bathroom and price.  </h3>
-<img src="static/photos/price_bath.png" alt="Girl in a jacket" style="width:600px;height:600px;">
+<img src="static/photos/price_bath.png" alt="Graph of price other bathrooms" style="width:600px;height:600px;">
 
 <h3> Now let's cut some data. If you have seen we are given data point like, date, price, floors, waterfront, view, year built and a few more.   </h3>
 <h3> We are only going to keep price, bedrooms, bathrooms, sqft_living, sqft_lot, floors, condition, and grade    </h3>
 
  <h3> OK this is better. We know have better data to work with. </h3>
-    <img src="static/photos/screenshot_2.png" alt="Girl in a jacket" style="width:700px;height:700px;">
+    <img src="static/photos/screenshot_2.png" alt="Screenshot of exel sheet clean" style="width:700px;height:700px;">
 
 
 <h3> Now, in the code we train and test the data. We reserve 40% of the data (homes) so we can test it once the model is trained.</h3>
 
 
      <h3> Now, let's feed out AI the test data and see how we did!  </h3>
-        <img src="static/photos/prediction_graph.png" alt="Girl in a jacket" style="width:700px;height:500px;">
+        <img src="static/photos/prediction_graph.png" alt="Grapgh of AI predictions" style="width:700px;height:500px;">
 
 
     <h3> Good news, we did ok. This is to be expected. We have a strong pattern. The closer the dots are together the better. There are some outliers and some of our predictions are not exact. When it comes to real estate there are many factors that determine price. </h3>
