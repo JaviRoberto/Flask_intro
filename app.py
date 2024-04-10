@@ -2,10 +2,19 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import sklearn
+from sklearn import metrics
 from sklearn.linear_model import LogisticRegression, LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 from flask import Flask, render_template, request
+from sklearn.metrics import accuracy_score
+
+# todo make it so fields in index.html can be empty and still work.
+# todo add accuracy to the AI model
+# todo make the UI look pretty
+# todo make it so the AI does have to train everytim (optional)
+
 
 app = Flask(__name__, template_folder='template')
 # Read data
@@ -50,9 +59,14 @@ def test_info(bedrooms, bathrooms,sqft_living, sqft_lot, floors, condition, grad
 
     predict = lin_reg.predict(x_test)
 
+
     plt.scatter(y_test, predict)
     plt.savefig('prediction_graph.png')  # Save the plot before displaying it
     plt.show()
+
+    y_pred = lin_reg.predict(x_test)
+    score = accuracy_score(y_test,y_pred)
+    print(score, "XXXXX")
 
     new_data = [['bedrooms', bedrooms], ['bathrooms', bathrooms],['sqft_living', sqft_living],['sqft_lot', sqft_lot], ['floors', floors], ['condition', condition], ['grade',grade]]
 
@@ -71,6 +85,8 @@ def test_info(bedrooms, bathrooms,sqft_living, sqft_lot, floors, condition, grad
 
     # Predict using the model
     new_pred = lin_reg.predict(input_df)
+
+
 
     # Print the prediction, 1.75 to adjust for market price increse since 2015
     return int(new_pred[0]) * 1.75
