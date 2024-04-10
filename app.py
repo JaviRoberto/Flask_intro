@@ -89,7 +89,7 @@ def test_info(bedrooms, bathrooms,sqft_living, sqft_lot, floors, condition, grad
 
 
     # Print the prediction, 1.75 to adjust for market price increse since 2015
-    return int(new_pred[0]) * 1.75
+    return int(new_pred[0]) * 2.2
 
 
 
