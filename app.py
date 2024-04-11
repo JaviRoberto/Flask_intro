@@ -64,9 +64,6 @@ def test_info(bedrooms, bathrooms,sqft_living, sqft_lot, floors, condition, grad
     plt.savefig('prediction_graph.png')  # Save the plot before displaying it
     plt.show()
 
-    y_pred = lin_reg.predict(x_test)
-    score = accuracy_score(y_test,y_pred)
-    print(score, "XXXXX")
 
     new_data = [['bedrooms', bedrooms], ['bathrooms', bathrooms],['sqft_living', sqft_living],['sqft_lot', sqft_lot], ['floors', floors], ['condition', condition], ['grade',grade]]
 
@@ -89,8 +86,9 @@ def test_info(bedrooms, bathrooms,sqft_living, sqft_lot, floors, condition, grad
 
 
     # Print the prediction, 1.75 to adjust for market price increse since 2015
-    return int(new_pred[0]) * 2.2
 
+    return ("{:,}".format(int(new_pred[0])))
+    #return int(new_pred[0] * 2.2)
 
 
 app = Flask(__name__)
