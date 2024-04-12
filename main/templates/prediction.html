@@ -19,10 +19,10 @@
     <li>Grade: {{grade}} </li>
 </ul>
 
-{{% if prediction > 0 %}}
+{{% if prediction > 0 %}
 <h3> The estimated value is...${{prediction}}!</h3>
 
-<h3> Today the property would be estimated based on mean value increase in King County at...${{prediction * 2.2}}!!</h3>
+<h3> Today the property would be estimated based on mean value increase in King County at...${{prediction}}!!</h3>
 
 {% else %}
 <h3> We apologize the estimated value is less than zero!</h3>
