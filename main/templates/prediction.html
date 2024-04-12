@@ -19,16 +19,10 @@
     <li>Grade: {{grade}} </li>
 </ul>
 
-{% if prediction > 0 %}
 <h3> The estimated value is...${{prediction}}!</h3>
 
 <h3> Today the property would be estimated based on mean value increase in King County at...${{prediction}}!!</h3>
 
-{% else %}
-<h3> We apologize the estimated value is less than zero!</h3>
-<h3> This is due to most likely due to square footage being too small and therefor the model can not get an accurate estimate. Please try again. </h3>
-
-{% endif %}
 
 <form action='/'>
     <input type="submit" value="Back to Main Page" />
