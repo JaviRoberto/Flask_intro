@@ -110,8 +110,9 @@ def submit():
         condition = request.form['condition']
         grade = request.form['grade']
         prediction = test_info(bedrooms, bathrooms,sqft_living, sqft_lot, floors, condition, grade)
+        new_prediction = prediction * 2.2
 
-        return render_template("prediction.html",bedrooms=bedrooms,bathrooms= bathrooms,sqft_living=sqft_living,sqft_lot=sqft_lot,floors=floors,condition=condition, grade= grade, prediction=  prediction)
+        return render_template("prediction.html",bedrooms=bedrooms,bathrooms= bathrooms,sqft_living=sqft_living,sqft_lot=sqft_lot,floors=floors,condition=condition, grade= grade, prediction=  prediction, new_prediction= new_prediction)
 
 
 
