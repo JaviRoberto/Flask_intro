@@ -16,13 +16,14 @@ from sklearn.metrics import accuracy_score
 # todo make it so the AI does have to train everytim (optional)
 
 
+# Flask read template folder
 app = Flask(__name__, template_folder='template')
-# Read data
 
 
 
 
 
+#function to that both reads housing dating from CVS and trains AI, and takes in parameters to estimate house price.
 def test_info(bedrooms, bathrooms,sqft_living, sqft_lot, floors, condition, grade):
     houses = pd.read_csv("kc_house_data.csv")
 
@@ -49,22 +50,24 @@ def test_info(bedrooms, bathrooms,sqft_living, sqft_lot, floors, condition, grad
 
     plt.show()  #Display any plots if needed
 
+    #parses and prepares data to be trained.
     x = houses_mod.drop(['price'], axis=1)
     y = houses_mod['price']
-
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.4, random_state=101)
 
+    #Calles model type and fits training data in.
     lin_reg = LinearRegression()
     lin_reg.fit(x_train, y_train)
 
+    #predicts left over 40% of data.
     predict = lin_reg.predict(x_test)
 
-
+    #compares test data to prediction model
     plt.scatter(y_test, predict)
     plt.savefig('prediction_graph.png')  # Save the plot before displaying it
     plt.show()
 
-
+    # assigns parameters to dict
     new_data = [['bedrooms', bedrooms], ['bathrooms', bathrooms],['sqft_living', sqft_living],['sqft_lot', sqft_lot], ['floors', floors], ['condition', condition], ['grade',grade]]
 
     # Convert the list of lists to a pandas DataFrame
@@ -85,22 +88,24 @@ def test_info(bedrooms, bathrooms,sqft_living, sqft_lot, floors, condition, grad
 
 
 
-    # Print the prediction, 1.75 to adjust for market price increse since 2015
 
+    #returnb prdiction into dollar format.
     return ("{:,}".format(int(new_pred[0])))
     #return int(new_pred[0] * 2.2)
 
 
+#initiate flask requirments
 app = Flask(__name__)
 
-
+#assign index page
 @app.route('/')
 def index():
-
     return render_template('index.html')
 
+#assign submission form response page
 @app.route('/prediction', methods=['POST'])
 def submit():
+    #gathers input data from form
     if request.method == 'POST':
         bedrooms =request.form['bedrooms']
         bathrooms = request.form['bathrooms']
@@ -109,12 +114,14 @@ def submit():
         floors = request.form['floors']
         condition = request.form['condition']
         grade = request.form['grade']
+        #Runs Machine learning model by calling test_info()
         prediction = test_info(bedrooms, bathrooms,sqft_living, sqft_lot, floors, condition, grade)
 
+        #returns and formats 2015 prediction and new 2024 prediction
         temp_prediction = int(float(prediction.replace(',', '')) * 2.2)
         new_prediction = f"{temp_prediction:,.2f}"
 
-
+        #returns parameters to flask page
         return render_template("prediction.html",bedrooms=bedrooms,bathrooms= bathrooms,sqft_living=sqft_living,sqft_lot=sqft_lot,floors=floors,condition=condition, grade= grade, prediction=  prediction, new_prediction= new_prediction)
 
 
