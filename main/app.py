@@ -10,10 +10,6 @@ from sklearn.metrics import classification_report
 from flask import Flask, render_template, request
 from sklearn.metrics import accuracy_score
 
-# todo make it so fields in index.html can be empty and still work.
-# todo add accuracy to the AI model
-# todo make the UI look pretty
-# todo make it so the AI does have to train everytim (optional)
 
 
 # Flask read template folder
