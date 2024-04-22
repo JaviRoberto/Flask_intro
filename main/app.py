@@ -116,7 +116,6 @@ def submit():
         #returns and formats 2015 prediction and new 2024 prediction
         temp_prediction = int(float(prediction.replace(',', '')) * 2.2)
         new_prediction = f"{temp_prediction:,.2f}"
-
         #returns parameters to flask page
         return render_template("prediction.html",bedrooms=bedrooms,bathrooms= bathrooms,sqft_living=sqft_living,sqft_lot=sqft_lot,floors=floors,condition=condition, grade= grade, prediction=  prediction, new_prediction= new_prediction)
 
